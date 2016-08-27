@@ -209,13 +209,12 @@ class Deneme(App):
         if (self.ledStatus==False):
             self.cikti.text = self.cikti.text + "b"
             GPIO.output(ledPin, GPIO.HIGH)
+            self.ledStatus = True
 
         else:
             self.cikti.text = self.cikti.text + "c"
             GPIO.output(ledPin, GPIO.LOW)
-
-
-
+            self.ledStatus = False
 
     def build(self):
         self.sontus=""
