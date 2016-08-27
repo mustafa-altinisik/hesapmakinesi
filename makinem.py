@@ -11,6 +11,24 @@ Config.set('graphics', 'height', '600')
 #pencere boyutlarnı ayarladık.
 
 
+import RPi.GPIO as GPIO
+
+#for now, use a global for blink speed (better implementation TBD):
+speed = 1.0
+
+# Set up GPIO:
+beepPin = 17
+ledPin = 27
+buttonPin = 22
+flashLedPin = 10
+GPIO.setmode(GPIO.BCM)
+GPIO.setup(beepPin, GPIO.OUT)
+GPIO.output(beepPin, GPIO.LOW)
+GPIO.setup(ledPin, GPIO.OUT)
+GPIO.output(ledPin, GPIO.LOW)
+GPIO.setup(flashLedPin, GPIO.OUT)
+GPIO.output(flashLedPin, GPIO.LOW)
+GPIO.setup(buttonPin, GPIO.IN, pull_up_down=GPIO.PUD_UP)
 
 
 class Deneme(App):
@@ -322,6 +340,7 @@ class Deneme(App):
         Ekran.add_widget(sira3)
         Ekran.add_widget(sira4)
 
+        GPIO.add_event_detect(buttonPin, GPIO.RISING, callback=self.tusaBasildi1, bouncetime=200)
 
         return Ekran
 
