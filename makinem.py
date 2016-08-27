@@ -340,7 +340,7 @@ class Deneme(App):
         Ekran.add_widget(sira3)
         Ekran.add_widget(sira4)
 
-        GPIO.add_event_detect(buttonPin, GPIO.RISING, callback=self.tusaBasildi1, bouncetime=200)
+        GPIO.add_event_detect(buttonPin, GPIO.RISING, callback=self.tusaBasildi1, bouncetime=50)
 
         return Ekran
 
