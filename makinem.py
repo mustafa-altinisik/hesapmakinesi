@@ -104,7 +104,8 @@ class Deneme(App):
         self.sontus = "islem"
 
     def tusaBasildioff(self, *args):
-        self.cikti.text = self.cikti.text + "OFF"
+        self.stop()
+
 
     def tusaBasildi7(self, *args):
         if (self.sontus=="islem"):
@@ -325,6 +326,5 @@ class Deneme(App):
         return Ekran
 
 
-
-
-Deneme().run()
+app=Deneme()
+app.run()
