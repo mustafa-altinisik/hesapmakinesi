@@ -204,6 +204,11 @@ class Deneme(App):
 
         self.sontus = "islem"
 
+    def toggleLed(self, *args):
+        if (self.ledStatus):
+            GPIO.output(ledPin, GPIO.HIGH)
+        else:
+            GPIO.output(ledPin, GPIO.LOW)
 
 
 
@@ -213,6 +218,7 @@ class Deneme(App):
         self.deger = 0
         self.islem = "+"
         self.title = u"Hesap Makinesi"
+        self.ledStatus=False
         #pencerenin başlığını ayarladık
         Ekran = BoxLayout(orientation = 'vertical')
         #Ekran adında boxlayout oluşturduk.
@@ -293,7 +299,8 @@ class Deneme(App):
         dugmeARTI.color=(1,0,0,1)
         #düğmenin rengini değiştirdik.
         dugmeARTI.bind(on_press=self.tusaBasildiarti)
-        bosluk = Label(text="Hesap\nMakinesi\n2016")
+        Led = Button(text="Led")
+        Led.bind(on_press=self.toggleLed)
         #Son satırın sonundaki boşluğu geçici süre için doldurduk.
 
 
@@ -330,7 +337,7 @@ class Deneme(App):
         sira4.add_widget(dugme0)
         sira4.add_widget(dugmeNOKTA)
         sira4.add_widget(dugmeARTI)
-        sira4.add_widget(bosluk)
+        sira4.add_widget(Led)
         #Dördüncü satırın öğelerini derledik.
 
 
