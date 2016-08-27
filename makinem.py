@@ -17,8 +17,8 @@ import RPi.GPIO as GPIO
 speed = 1.0
 
 # Set up GPIO:
-beepPin = 27
-ledPin = 17
+beepPin = 17
+ledPin = 27
 buttonPin = 22
 flashLedPin = 10
 GPIO.setmode(GPIO.BCM)
