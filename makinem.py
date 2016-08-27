@@ -206,9 +206,10 @@ class Deneme(App):
 
     def toggleLed(self, *args):
         self.cikti.text = self.cikti.text + "a"
-        if (!self.ledStatus):
+        if (self.ledStatus==False):
             self.cikti.text = self.cikti.text + "b"
             GPIO.output(ledPin, GPIO.HIGH)
+
         else:
             self.cikti.text = self.cikti.text + "c"
             GPIO.output(ledPin, GPIO.LOW)
