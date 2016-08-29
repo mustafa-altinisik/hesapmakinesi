@@ -45,8 +45,8 @@ class Uygulama(App):
     def tusaBasildi(self, *args):
 
         keyboard = Window.request_keyboard(self,input_type='number')
-            vkeyboard = self._keyboard.widget
-            vkeyboard.layout = 'numeric.json'
+        vkeyboard = self._keyboard.widget
+        vkeyboard.layout = 'numeric.json'
 
     def sinyalGeldi(self, *args):
 
