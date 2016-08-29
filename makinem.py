@@ -45,7 +45,7 @@ Window.clearcolor = (0, 0, 0, 1)
 class Uygulama(App):
     def tusaBasildi(self, *args):
 
-        kb = Window.request_keyboard(input_type='number',self)
+        kb = Window.request_keyboard(self,self.isinaditext.text,self)
 
         if kb.widget:
             # If the current configuration supports Virtual Keyboards, this
