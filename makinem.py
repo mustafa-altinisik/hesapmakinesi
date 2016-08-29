@@ -2,6 +2,7 @@
 
 from kivy.app import App
 from kivy.config import Config
+import time
 Config.set('graphics', 'widht', '800')
 Config.set('graphics', 'height', '480')
 
@@ -52,11 +53,20 @@ class Uygulama(App):
     def sinyalGeldi(self, *args):
 
         self.yapilan.text = str(int(self.yapilan.text)+1)
+        self.cycleSuresi=time.time()-self.oncekiVurus
+        self.oncekiVurus=time.time()
+        self.cevrimsuresi.text=str(self.cycleSuresi)+" sn"
+
 
 
     def build(self, *args):
         self.title = u"Otomat Sayacı"
         Ekran = BoxLayout(orientation = 'vertical')
+        self.oncekiVurus=time.time()
+        self.cycleSuresi=0.0
+
+
+
 
         sira1 = BoxLayout()
         sira2 = BoxLayout()
