@@ -55,7 +55,7 @@ class Uygulama(App):
         self.yapilan.text = str(int(self.yapilan.text)+1)
         self.cycleSuresi=time.time()-self.oncekiVurus
         self.oncekiVurus=time.time()
-        self.cevrimsuresi.text=str(self.cycleSuresi)+" sn"
+        self.cevrimsuresi.text="%.2f" %self.cycleSuresi+" sn"
 
 
 
