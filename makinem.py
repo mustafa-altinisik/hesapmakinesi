@@ -38,7 +38,7 @@ GPIO.setup(buttonPin, GPIO.IN, pull_up_down=GPIO.PUD_UP)
 
 #Window.size = (800, 480)
 
-Window.clearcolor = (0, 0, 0, 0)
+Window.clearcolor = (0, 0, 0, 1)
 
 class Uygulama(App):
     def tusaBasildi(self, *args):
