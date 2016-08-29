@@ -15,6 +15,7 @@ from kivy.uix.label import Label
 from kivy.uix.boxlayout import BoxLayout
 from kivy.uix.textinput import TextInput
 from kivy.core.window import Window
+from kivy.uix.vkeyboard import VKeyboard
 import os
 import RPi.GPIO as GPIO
 speed = 1.0
@@ -44,10 +45,16 @@ Window.clearcolor = (0, 0, 0, 1)
 class Uygulama(App):
     def tusaBasildi(self, *args):
 
-        keyboard = Window.request_keyboard(self,input_type='number')
-        if keyboard.widget:
-            vkeyboard = self._keyboard.widget
-            vkeyboard.layout = 'numeric.json'
+        kb = Window.request_keyboard(input_type='number',self)
+
+        if kb.widget:
+            # If the current configuration supports Virtual Keyboards, this
+            # widget will be a kivy.uix.vkeyboard.VKeyboard instance.
+            self._keyboard = kb.widget
+            self._keyboard.layout = layout
+        else:
+            self._keyboard = kb
+
 
     def sinyalGeldi(self, *args):
 
