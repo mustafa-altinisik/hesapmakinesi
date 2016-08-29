@@ -49,6 +49,9 @@ class Uygulama(App):
             vkeyboard = self._keyboard.widget
             vkeyboard.layout = 'numeric.json'
 
+    def sinyalGeldi(self, *args):
+
+        self.yapilan.text = str(int(self.yapilan.text)+1)
 
 
     def build(self, *args):
@@ -88,7 +91,7 @@ class Uygulama(App):
         Ekran.add_widget(sira3)
         Ekran.add_widget(sira4)
 
-        GPIO.add_event_detect(buttonPin, GPIO.RISING, callback=self.tusaBasildi1, bouncetime=50)
+        GPIO.add_event_detect(buttonPin, GPIO.RISING, callback=self.sinyalGeldi, bouncetime=50)
 
         return Ekran
 
